@@ -11,6 +11,8 @@ students = [
     }
 ]
 
+# this is feature
+
 @app.route('/students',methods=["GET"])
 def student():
     return jsonify({'students':students})
