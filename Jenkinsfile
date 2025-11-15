@@ -9,7 +9,7 @@ pipeline{
         stage('Build python requirements'){
             steps{
                 bat '''
-                    python3 -m venv venv
+                    python -m venv venv
                     . venv/bin/activate
                     pip install --upgrade pip
                     pip install -r requirements.txt
@@ -20,7 +20,7 @@ pipeline{
             steps{
                 bat '''
                     . venv/bin/activate
-                    python3 -m pytest -v junitxml=report.xml
+                    python -m pytest -v junitxml=report.xml
                 '''
             }
         }
