@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Build python requirements'){
             steps{
-                bat '''
+                powershell '''
                     python -m venv venv
                     . venv/bin/activate
                     pip install --upgrade pip
@@ -18,7 +18,7 @@ pipeline{
         }
         stage('Tests'){
             steps{
-                bat '''
+                powershell '''
                     . venv/bin/activate
                     python -m pytest -v junitxml=report.xml
                 '''
